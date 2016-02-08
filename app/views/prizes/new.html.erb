@@ -1,0 +1,89 @@
+<!-- Validation failure messages -->
+<% if @prize.errors.any? %>
+  <% @prize.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Prize</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+
+    <form action="/create_prize" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+
+
+      <!-- Label and input for prize_name -->
+
+      <div class="form-group">
+        <label for="prize_name" class="control-label">
+          Prize name
+        </label>
+
+
+        <input type="text" id="prize_name" name="prize_name" placeholder="Prize name" class="form-control" value="<%= @prize.prize_name %>">
+
+      </div>
+
+
+
+      <!-- Label and input for pic_url -->
+
+      <div class="form-group">
+        <label for="pic_url" class="control-label">
+          Pic url
+        </label>
+
+
+        <input type="text" id="pic_url" name="pic_url" placeholder="Pic url" class="form-control" value="<%= @prize.pic_url %>">
+
+      </div>
+
+
+
+      <!-- Label and input for sponsor_name -->
+
+      <div class="form-group">
+        <label for="sponsor_name" class="control-label">
+          Sponsor name
+        </label>
+
+
+        <input type="text" id="sponsor_name" name="sponsor_name" placeholder="Sponsor name" class="form-control" value="<%= @prize.sponsor_name %>">
+
+      </div>
+
+
+
+      <!-- Label and input for chat_id -->
+
+      <div class="form-group">
+        <label for="chat_id" class="control-label">
+          Chat
+        </label>
+
+
+        <input type="text" id="chat_id" name="chat_id" placeholder="Chat" class="form-control" value="<%= @prize.chat_id %>">
+
+      </div>
+
+
+
+      <button class="btn btn-success">
+        Create Prize
+      </button>
+      or
+      <a href="/prizes">Cancel</a>
+
+    </form>
+
+  </div>
+</div>
