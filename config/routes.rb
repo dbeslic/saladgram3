@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+  devise_for :users
   # Routes for the Follow resource:
   # CREATE
+
+  get "/", :controller => "chats", :action => "index"
+
   get "/follows/new", :controller => "follows", :action => "new"
   post "/create_follow", :controller => "follows", :action => "create"
 
